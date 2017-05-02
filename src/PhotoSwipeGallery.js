@@ -13,7 +13,8 @@ class PhotoSwipeGallery extends React.Component {
     options: PropTypes.object,
     thumbnailContent: PropTypes.func,
     id: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    style: PropTypes.object,
   };
 
   static defaultProps = {
@@ -56,12 +57,12 @@ class PhotoSwipeGallery extends React.Component {
   };
 
   render() {
-    let {id, className, items, thumbnailContent, ...other} = this.props;
+    let {id, className, style, items, thumbnailContent, ...other} = this.props;
     className = classnames(['pswp-gallery', className]).trim();
     let eventProps = pick(other, events);
     let {isOpen, options} = this.state;
     return (
-      <div id={id} className={className}>
+      <div id={id} className={className} style={style}>
         <div className="pswp-thumbnails">
           {items.map((item, index) => {
             return (

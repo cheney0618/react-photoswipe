@@ -14,7 +14,8 @@ class PhotoSwipe extends React.Component {
     options: PropTypes.object,
     onClose: PropTypes.func,
     id: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    style: PropTypes.object,
   };
   static defaultProps = {
     items: [],
@@ -104,11 +105,12 @@ class PhotoSwipe extends React.Component {
   };
 
   render() {
-    let {id, className} = this.props;
+    let {id, className, style} = this.props;
     className = classnames(['pswp', className]).trim();
     return (
       <div id={id}
         className={className}
+        style={style}
         tabIndex="-1"
         role="dialog"
         aria-hidden="true">
